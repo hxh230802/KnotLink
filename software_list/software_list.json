@@ -1,0 +1,11 @@
+[
+    {
+        "name": "软件示例",
+        "english_name": "software_demo",
+        "app_id": "0x0000000F",
+        "knotlink_version": "1.0.0",
+        "description": "这是一个示例软件，用于演示如何接入 Knotlink 协议。",
+        "url": "https://example.com/softwarea",
+        "status": "stable"
+    }
+]
