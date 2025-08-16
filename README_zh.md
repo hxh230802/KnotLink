@@ -23,8 +23,9 @@ KnotLink 是一种用于程序间便捷通信的协议，帮助开发者轻松�
 在编写文档或宣传项目时提到 KnotLink 相关功能，请在显著位置标注以下内容：
 - **KnotLink 简短介绍**：强大的软件互联协议。
 - **KnotLink 开源仓库地址**：[https://github.com/hxh230802/KnotLink](https://github.com/hxh230802/KnotLink)
-- **作者信息**：“hxh280302”或“创猿er”
+- **作者信息**：“hxh230802”或“创猿er”
 
 ## 行为准则
+
 
 本项目遵循 KnotLink [行为准则](https://github.com/hxh230802/KnotLink/blob/main/CODE_OF_CONDUCT.md)。参与本项目，即表示您认同并遵守该准则。
