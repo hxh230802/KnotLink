@@ -21,7 +21,7 @@ Use the SDK methods to send and receive data.
 When mentioning KnotLink features in documentation or promotional materials, please prominently include the following:
 - Brief Introduction of KnotLink: A powerful protocol for software interconnection.
 - KnotLink Open-Source Repository: https://github.com/hxh230802/KnotLink
-- Author Information: "hxh280302" or "创猿er"
+- Author Information: "hxh230802" or "创猿er"
 
 ## Code of Conduct
 This project adheres to the KnotLink [Code of Conduct](https://github.com/hxh230802/KnotLink/blob/main/CODE_OF_CONDUCT.md). By participating, you are expected to uphold this code.
