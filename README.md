@@ -1,7 +1,7 @@
 # KnotLink
 A protocol for easy communication with other programs.
 
-[中文](https://github.com/hxh230802/KnotLink/README_zh.md)
+[中文](https://github.com/hxh230802/KnotLink/blob/main/README_zh.md)
 
 ## Introduction
 
@@ -24,6 +24,6 @@ When mentioning KnotLink features in documentation or promotional materials, ple
 - Author Information: "hxh280302" or "创猿er"
 
 ## Code of Conduct
-This project adheres to the KnotLink [Code of Conduct](https://github.com/hxh230802/KnotLink/CODE_OF_CONDUCT.md). By participating, you are expected to uphold this code.
+This project adheres to the KnotLink [Code of Conduct](https://github.com/hxh230802/KnotLink/blob/main/CODE_OF_CONDUCT.md). By participating, you are expected to uphold this code.
 
 
