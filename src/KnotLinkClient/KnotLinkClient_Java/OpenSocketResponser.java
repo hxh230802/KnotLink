@@ -1,0 +1,86 @@
+// Copyright (C) 2025 HXH
+//
+// This program is free software: you can redistribute it and/or modify
+// it under the terms of the GNU General Public License as published by
+// the Free Software Foundation, either version 3 of the License, or
+// (at your option) any later version.
+//
+// This program is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// GNU General Public License for more details.
+//
+// You should have received a copy of the GNU General Public License
+// along with this program.  If not, see <https://www.gnu.org/licenses/>.
+
+import java.nio.charset.StandardCharsets;
+
+public class OpenSocketResponser {
+    private TcpClient KLresponser;
+    private String appID;
+    private String openSocketID;
+
+    public interface DataListener {
+        void onDataReceived(String data, String key);
+    }
+
+    private DataListener dataListener;
+
+    public OpenSocketResponser(String appID, String openSocketID) {
+        this.appID = appID;
+        this.openSocketID = openSocketID;
+        init();
+    }
+
+    public void setDataListener(DataListener listener) {
+        this.dataListener = listener;
+    }
+
+    private void init() {
+        KLresponser = new TcpClient();
+        KLresponser.connectToServer("127.0.0.1", 6372);
+        System.out.println("OKK");
+
+        KLresponser.setDataReceivedListener(this::dataRecv);
+
+        String s_key = appID + "-" + openSocketID;
+        KLresponser.sendData(s_key); // 发送初始化数据
+    }
+
+    private void dataRecv(String s_data) {
+
+        String delimiter = "&\\*&"; // 分隔符
+        String[] parts = s_data.split(delimiter);
+
+        // 打印每个部分
+        for (int i = 0; i < parts.length; i++) {
+            System.out.println("Part " + (i + 1) + ": " + parts[i]);
+        }
+
+        if (parts.length != 2) {
+            System.err.println("Invalid data format. Expected two parts separated by " + delimiter);
+            return;
+        }
+
+        String key = parts[0]; // 前一部分作为 key
+        String t_data = parts[1]; // 后一部分作为 t_data
+
+        // 调用外部回调
+        if (dataListener != null) {
+            dataListener.onDataReceived(t_data, key);
+        }
+    }
+
+    public void sendBack(String data, String questionID) {
+        sendBack(data.getBytes(StandardCharsets.UTF_8), questionID);
+    }
+
+    public void sendBack(byte[] data, String questionID) {
+        String data_r = questionID + "&*&" + new String(data, StandardCharsets.UTF_8);
+        KLresponser.sendData(data_r);
+    }
+
+    public void close() {
+        KLresponser.close();
+    }
+}
